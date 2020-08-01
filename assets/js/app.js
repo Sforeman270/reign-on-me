@@ -59,15 +59,12 @@ function searchCity(cityName) {
                 method: "GET"
             })
                 .then(function (response) {
-                    localStorage.setItem("cityInput", cityList);
+                    localStorage.setItem("Search Array", cityInput);
                     console.log(response);
 
                     let fiveDay = response.value;
 
                     $("#fiveDay").append(`Five Day Forecast: <span class="fiveday"> ${fiveDay}</span>`);
-
-
-
 
                     $(".card-header").text('todaysDate +');
                     $("#enteredCity").html(response.name + " (' todaysDate +')");
@@ -106,8 +103,25 @@ function searchCity(cityName) {
 			responseContainerEl.appendChild(fiveDayImg);
 			document.querySelector('#newCity').textContent('');
 
-			
+            
+            
+            var list = JSON.parse(localStorage.getItem('cityInput')) || [];
+            function renderCities(list) {
+                $('#cityInput').empty();
+
+                for (i = 0; i < list.length; i++) {
+                    var newCity = $('<p>');
+                    newCity.text(list[i]);
+                }
+
+            }
+
+    
 		});
 };
+
+
+
+
 
 
