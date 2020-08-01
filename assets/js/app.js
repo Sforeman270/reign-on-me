@@ -87,6 +87,7 @@ function searchCity(cityName) {
 
 
     $(".searchButton").on("click", function () {
+        event.preventDefault();
         let cityList = $("#cityInput").val();
         searchArray.push(cityList);
         searchCities();
@@ -112,12 +113,27 @@ function searchCity(cityName) {
                 for (i = 0; i < list.length; i++) {
                     var newCity = $('<p>');
                     newCity.text(list[i]);
+
+
+                    $('#city-container').append(newCity);
+
+
                 }
 
             }
 
-    
-		});
+               var searchedCity = $('#cityInput')
+               .val()
+               .trim();
+
+               list.push(searchedCity);
+
+               renderCities(list);
+
+
+        });
+        
+        
 };
 
 
