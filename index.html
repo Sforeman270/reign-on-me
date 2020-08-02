@@ -14,82 +14,89 @@
     <title>Weather App</title>
 </head>
 
-<body class="flex-column min-100-vh">
+<body>
 
-    <main class="flex-row justify-space-between">
+    <main>
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark Display1">
                 <a class="navbar-brand" href="#">Weather Dashboard</a>
             </nav>
         </div>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-5">
-                    <h4>Search for a City: <span id="enteredCity"></span></h4>
-                    <div class="row">
-                        <div class="input">
-                            <form>
-                                <input type="text" id="cityInput" value="" />
-                                <button type="submit" class="btn btn-primary searchButton" id="cityInput">search
-                                    icon</button>
-                            </form>
-                            
-                        </div>
-                        <div id="city-container response-container" class="card" style="width: 18rem;">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"></li>
-                            </ul>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h4>Search for a City: <span id="enteredCity"></span></h4>
                         <div class="row">
-                            <div class=" col-12 col-md-7">
-                                <div class="card">
-                                    <h2 class="card-header" id="enteredCity" id="weatherImage"></h2>
-                                    <div id="card-body">
-                                        <p id="temperature"></p>
-                                        <p id="humidity"></p>
-                                        <p id="windspeed"></p>
-                                        <p id="uv"></p>
-                                    </div>
-                                    <div class="container">
-                                        <div class="card-deck">
-                                            <div class="col-12 col-md-7">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        This is some text within a card body.
-                                                    </div>
-                                                </div>
+                            <div class="input">
+                                <form>
+                                    <input type="text" id="cityInput" value="" />
+                                    <button type="submit" class="btn btn-primary searchButton" id="cityInput">search
+                                        icon</button>
+                                </form>
 
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        This is some text within a card body.
+                            </div>
+                            <div id="city-container response-container" class="card" style="width: 18rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class=" col-12 col-md-7">
+                        <div class="card">
+                            <h2 class="card-header" id="enteredCity" id="weatherImage"></h2>
+                            <div id="card-body">
+                                <p id="temperature"></p>
+                                <p id="humidity"></p>
+                                <p id="windspeed"></p>
+                                <p id="uv"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="card-deck">
+                        <div class="col-12 col-md-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    This is some text within a card body.
+                                </div>
+                            </div>
 
-                                                    </div>
-                                                </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    This is some text within a card body.
 
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        This is some text within a card body.
-                                                    </div>
-                                                </div>
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        This is some text within a card body.
-                                                    </div>
-                                                </div>
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        This is some text within a card body.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    This is some text within a card body.
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    This is some text within a card body.
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    This is some text within a card body.
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
+            </div>
+        </div>
 
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
