@@ -50,7 +50,10 @@ function searchCity(cityName) {
                     else {
                         $(".uvspan").addClass("bad");
                     }
-
+                    
+                    let latittude = response.coord.latittude;
+                    let longitude = repsonse.coord.longe;
+        
                 })
 
 
@@ -86,11 +89,17 @@ function searchCity(cityName) {
         })
 
 
-    $(".searchButton").on("click", function () {
+    $(".searchBtn").on("click", function () {
         event.preventDefault();
         let cityList = $("#cityInput").val();
         searchArray.push(cityList);
         searchCities();
+
+        $searchBtn.append($magnifying-glassIcon);
+        $buttonDiv.append($searchBtn);
+        $inputGroupDiv.append($hourDiv, $input, $buttonDiv);
+        $inputForm.append($inputGroupDiv);
+
     })
       then(function(response) {
 			console.log('Incoming data');

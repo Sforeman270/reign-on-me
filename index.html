@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Weather App</title>
 </head>
@@ -17,91 +19,82 @@
 <body>
 
     <main>
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark Display1">
-                <a class="navbar-brand" href="#">Weather Dashboard</a>
-            </nav>
+        <div class="header bg-dark">
+            <h1>Weather Dashboard</h1>
         </div>
         <div class="container-fluid">
-
             <div class="row">
-                <div class="col-md-6">
+                <aside class="col-lg-3">
                     <h4>Search for a City: <span id="enteredCity"></span></h4>
+                    <div class="form">
+                        <form>
+                            <input type="text" id="cityInput" value="" />
+                            <button type="submit" class="btn btn-primary searchButton material-icons"
+                                id="cityInput"></button>
+                        </form>
+                    </div>
+                    <ul class="list-group-history list-group-flush"> </ul>
+                </aside>
+                <div class="col-lg-9">
 
-
-
-                    <form>
-                        <input type="text" id="cityInput" value="" />
-                        <button type="submit" class="btn btn-primary searchButton" id="cityInput">search
-                            icon</button>
-                    </form>
-
-
-
-
-                    <div class="col-md-6 align-items-start">
-                        <div id="city-container response-container" class="card" style="width: 18rem;">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"></li>
-                            </ul>
+                    <div id="today" class="">
+                        <div class="card">
+                            <h2 class="card-header" id="enteredCity" id="weatherImage"></h2>
+                            <div id="card-body">
+                                <p id="temperature"></p>
+                                <p id="humidity"></p>
+                                <p id="windspeed"></p>
+                                <p id="uv"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+            <div id="forecast" class="row">
 
-
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <h2 class="card-header" id="enteredCity" id="weatherImage"></h2>
-                        <div id="card-body">
-                            <p id="temperature"></p>
-                            <p id="humidity"></p>
-                            <p id="windspeed"></p>
-                            <p id="uv"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            This is some text within a card body.
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            This is some text within a card body.
-
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body">
-                            This is some text within a card body.
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            This is some text within a card body.
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            This is some text within a card body.
-                        </div>
+                <div class="card">
+                    <div class="card-body">
+                
                     </div>
                 </div>
 
+                <div class="card">
+                    <div class="card-body">
+                    
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                    
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
             </div>
 
         </div>
-        </div>
+        
+
+
+
+
+
+
+
+
+
+
 
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
