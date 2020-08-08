@@ -40,7 +40,7 @@ function populateCurrentCity(currentCity) {
             $("#temperature").text("Temperature: " + response.main.temp);
             $("#humidity").text("Humidity: " + response.main.humidity);
             $("#windspeed").text("Windspeed:" + response.wind.speed);
-            $(".today-header").text(cityName);
+            $(".today-header").text(currentCity);
 
             let latittude = response.coord.lat;
             let longitude = repsonse.coord.lon;
@@ -68,46 +68,64 @@ function populateCurrentCity(currentCity) {
                         $(".uvspan").addClass("bad");
                     }
 
-                    
-                
+
+
+
+
+
+                    $.ajax({
+                        url: 'http://api.openweathermap.org/data/2.5/forecast?q=chicago&appid=762a77dec0a17de9f05c06c1b4ac67f4',
+                        method: "GET"
+                    })
+                        .then(function (response) {
+                            localStorage.setItem("listCity", cityName);
+                            console.log(response);
+                            let dayOneImg = response.list[5].weather[0].icon;
+
+                            let dayOneImgUrl = "https://openweathermap.org/img/w/" + dateOneImage + ".png";
+
+                            let dayTwoImg = response.list[13].weather[0].icon;
+
+                            let dayTwoImgUrl = "https://openweathermap.org/img/w/" + dateTwomage + ".png";
+
+                            let dayThreeImg = response.list[21].weather[0].icon;
+
+                            let dayThreeImgUrl = "https://openweathermap.org/img/w/" + dateThreeImage + ".png";
+
+                            let dayFourImg = response.list[29].weather[0].icon;
+
+                            let dayFourImgUrl = "https://openweathermap.org/img/w/" + dateFourImage + ".png";
+
+                            let dayFiveImg = response.list[37].weather[0].icon;
+
+                            let dayFiveImgUrl = "https://openweathermap.org/img/w/" + dateFiveImage + ".png";
+
+
+
+                            /*let fiveDay = response.value;
         
-
+                            $("#fiveDay").append(`Five Day Forecast: <span class="fiveday"> ${fiveDay}</span>`);
         
-            $.ajax({
-                url: 'http://api.openweathermap.org/data/2.5/forecast?q=chicago&appid=762a77dec0a17de9f05c06c1b4ac67f4',
-                method: "GET"
-            })
-                .then(function (response) {
-                    localStorage.setItem("listCity", cityName);
-                    console.log(response);
-                    let dayOneImg = response.list[5].weather[0].icon;
-                    // 13,21,29,37,
-                    let dayOneImgUrl = "https://openweathermap.org/img/w/" + dateOneImage + ".png";
-
-                    /*let fiveDay = response.value;
-
-                    $("#fiveDay").append(`Five Day Forecast: <span class="fiveday"> ${fiveDay}</span>`);
-
-                    $(".today-header").text('todaysDate +');
-                    $("#enteredCity").html(response.name + " (' todaysDate +')");
-                    let imageIcon = response.weather
-                    let imageUrl = "https://openweathermap.org/img/w/" + imageIcon + ".png";
-                    $("#fweatherImage").attr("src", imageUrl);
-
-                    $("#ftemperature").text("Temperature: " + response.main.temp);
-                    $("#fhumidity").text("Humidity: " + response.main.humidity);
-
-
-
-                    let latittude = response.coord.latittude;
-                    let longitude = repsonse.coord.longe;
-                    */
+                            $(".today-header").text('todaysDate +');
+                            $("#enteredCity").html(response.name + " (' todaysDate +')");
+                            let imageIcon = response.weather
+                            let imageUrl = "https://openweathermap.org/img/w/" + imageIcon + ".png";
+                            $("#fweatherImage").attr("src", imageUrl);
+        
+                            $("#ftemperature").text("Temperature: " + response.main.temp);
+                            $("#fhumidity").text("Humidity: " + response.main.humidity);
+        
+        
+        
+                            let latittude = response.coord.latittude;
+                            let longitude = repsonse.coord.longe;
+                            */
+                        })
                 })
-            })
         })
 
 
-        
+
 
 }
 populateCurrentCity("chicago");
