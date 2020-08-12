@@ -49,7 +49,7 @@ function populateCurrentCity(currentCity) {
                 $("#weatherImage").attr("src", response.current.weather.icon);
                 $("#humidity").text("Humidity:" + response.current.humidity);
                 $("#windspeed").text("Windspeed:" + response.current.wind_speed);
-        
+
 
                 let uvIndex = response.current.uvi;
 
@@ -64,13 +64,12 @@ function populateCurrentCity(currentCity) {
                 else {
                     $(".uvspan").addClass("bad");
 
-                    $enteredCity.val((localStorage.getItem(city)));
+                    enteredCity.val((localStorage.getItem(city)));
                 }
 
+                
 
-                then(function (response) {
 
-                    console.log(response);
                     let dayOneImg = response.daily[0];
 
                     let dayOneImgUrl = "https://openweathermap.org/img/w/" + dateOneImage + ".png";
@@ -105,8 +104,8 @@ function populateCurrentCity(currentCity) {
 
 
 
-    })
-}
+    }
+
 
 $(document).on("click", ".searchBtn", function (e) {
     e.preventDefault();
@@ -122,5 +121,3 @@ $(document).on("click", ".searchBtn", function (e) {
     localStorage.setItem(city, enteredCity.val());
     console.log(enteredCity.val());
 })
-
-//populateCurrentCity("edina");
