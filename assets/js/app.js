@@ -78,7 +78,7 @@ function populateCurrentCity(currentCity) {
 
                     let dayTwoImgUrl = "https://openweathermap.org/img/w/" + dayTwoImg + ".png";
 
-                    let dayThreeImg = daily[2];
+                    let dayThreeImg = response.daily[2];
 
                     let dayThreeImgUrl = "https://openweathermap.org/img/w/" + dayThreeImg + ".png";
 
@@ -92,22 +92,12 @@ function populateCurrentCity(currentCity) {
                 });
 
 
-                $searchBtn.append($magnifying - glassIcon);
-                $buttonDiv.append($searchBtn);
-                $listGroupDiv.append($list - group - history, $enteredCity, $buttonDiv);
-                $inputForm.append($formGroupDiv);
+    })
 
 
+}
 
-            })
-
-
-
-
-    }
-
-
-$(document).on("click", ".searchBtn", function (e) {
+$(document).on("click", "#searchBtn", function (e) {
     e.preventDefault();
     console.log("city: ", enteredCity.val());
     populateCurrentCity(enteredCity.val());
@@ -119,5 +109,5 @@ $(document).on("click", ".searchBtn", function (e) {
         `)
     }
     localStorage.setItem(city, enteredCity.val());
-    console.log(enteredCity.val());
+        console.log(enteredCity.val());
 })
