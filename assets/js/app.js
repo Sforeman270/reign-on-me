@@ -72,23 +72,23 @@ function populateCurrentCity(currentCity) {
 
                     let dayOneImg = response.daily[0];
 
-                    let dayOneImgUrl = "https://openweathermap.org/img/w/" + dateOneImage + ".png";
+                    let dayOneImgUrl = "https://openweathermap.org/img/w/" + dayOneImg + ".png";
 
                     let dayTwoImg = response.daily[1];
 
-                    let dayTwoImgUrl = "https://openweathermap.org/img/w/" + dateTwoImage + ".png";
+                    let dayTwoImgUrl = "https://openweathermap.org/img/w/" + dayTwoImg + ".png";
 
                     let dayThreeImg = daily[2];
 
-                    let dayThreeImgUrl = "https://openweathermap.org/img/w/" + dateThreeImage + ".png";
+                    let dayThreeImgUrl = "https://openweathermap.org/img/w/" + dayThreeImg + ".png";
 
                     let dayFourImg = response.daily[3];
 
-                    let dayFourImgUrl = "https://openweathermap.org/img/w/" + dateFourImage + ".png";
+                    let dayFourImgUrl = "https://openweathermap.org/img/w/" + dayFourImg + ".png";
 
                     let dayFiveImg = response.daily[4];
 
-                    let dayFiveImgUrl = "https://openweathermap.org/img/w/" + dateFiveImage + ".png";
+                    let dayFiveImgUrl = "https://openweathermap.org/img/w/" + dayFiveImg + ".png";
                 });
 
 
