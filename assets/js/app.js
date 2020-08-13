@@ -67,32 +67,9 @@ function populateCurrentCity(currentCity) {
                     enteredCity.val((localStorage.getItem(city)));
                 }
 
-                
-                    function renderForecast(currentCity) {
-                        let dayOneImg = response.daily[0];
-
-                        let dayOneImgUrl = "https://openweathermap.org/img/w/" + dayOneImg + ".png";
-    
-                        let dayTwoImg = response.daily[1];
-    
-                        let dayTwoImgUrl = "https://openweathermap.org/img/w/" + dayTwoImg + ".png";
-    
-                        let dayThreeImg = response.daily[2];
-    
-                        let dayThreeImgUrl = "https://openweathermap.org/img/w/" + dayThreeImg + ".png";
-    
-                        let dayFourImg = response.daily[3];
-    
-                        let dayFourImgUrl = "https://openweathermap.org/img/w/" + dayFourImg + ".png";
-    
-                        let dayFiveImg = response.daily[4];
-    
-                        let dayFiveImgUrl = "https://openweathermap.org/img/w/" + dayFiveImg + ".png";
-                    }
 
 
-                    
-                });
+            });
 
 
     })
@@ -100,17 +77,46 @@ function populateCurrentCity(currentCity) {
 
 }
 
-$(document).on("click", "#searchBtn", function (e) {
-    e.preventDefault();
-    console.log("city: ", enteredCity.val());
-    populateCurrentCity(enteredCity.val());
-    listCity.push(enteredCity.val());
-    cityContainerEl.empty();
-    for (let city of listCity) {
-        cityContainerEl.append(`
+
+function renderForecast(currentCity) {
+    $(document).on("click", "#searchBtn", function (e) {
+        e.preventDefault();
+        console.log("city: ", enteredCity.val());
+        populateCurrentCity(enteredCity.val());
+        listCity.push(enteredCity.val());
+        for (var i = 0; i < data.list.length; i++) {
+            if (data.list[i].dt_txty.indexOf("15:00:00") !== -1) {
+
+                let dayOneImg = response.daily[0];
+
+                let dayOneImgUrl = "https://openweathermap.org/img/w/" + dayOneImg + ".png";
+
+                let dayTwoImg = response.daily[1];
+
+                let dayTwoImgUrl = "https://openweathermap.org/img/w/" + dayTwoImg + ".png";
+
+                let dayThreeImg = response.daily[2];
+
+                let dayThreeImgUrl = "https://openweathermap.org/img/w/" + dayThreeImg + ".png";
+
+                let dayFourImg = response.daily[3];
+
+                let dayFourImgUrl = "https://openweathermap.org/img/w/" + dayFourImg + ".png";
+
+                let dayFiveImg = response.daily[4];
+
+                let dayFiveImgUrl = "https://openweathermap.org/img/w/" + dayFiveImg + ".png";
+            }
+
+        }
+        cityContainerEl.empty();
+        for (let city of listCity) {
+            cityContainerEl.append(`
             <li class="cityRecord">${city}</li>
         `)
-    }
-    localStorage.setItem(city, enteredCity.val());
+        }
+        localStorage.setItem(city, enteredCity.val());
         console.log(enteredCity.val());
-})
+    })
+}
+renderForecast(currentCity);
