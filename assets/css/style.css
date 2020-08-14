@@ -17,3 +17,16 @@ h1 {
     background-color: royalblue;
     color: #ffff;
 }
+
+.good {
+ background-color: green;
+}
+
+.medium {
+    background-color: yellow;
+}
+
+.bad {
+    background-color: firebrick;
+}
+
