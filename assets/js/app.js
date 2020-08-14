@@ -1,6 +1,6 @@
 
 
-
+const dailyContent = $("#daily-content");
 const todaysDate = moment().format('');
 const listCity = [];
 const cityContainerEl = $("#cityContainer");
@@ -27,12 +27,12 @@ function populateCurrentCity(currentCity) {
     $.ajax({
         url: `http://api.openweathermap.org/data/2.5/weather?q=${enteredCity.val()}&appid=99c551b81296e62a1c47edacba59e365`,
         method: "GET"
-    }).then(function (response) {
-        console.log(response);
-        let imageIcon = response.weather
+    }).then(function (res) {
+        console.log(res);
+        let imageIcon = res.weather
         let imageUrl = "https://openweathermap.org/img/w/" + imageIcon + ".png";
-        let lat = response.coord.lat;
-        let lon = response.coord.lon;
+        let lat = res.coord.lat;
+        let lon = res.coord.lon;
 
 
 
@@ -44,9 +44,11 @@ function populateCurrentCity(currentCity) {
             .then(function (response) {
                 console.log(response);
                 $(".current-header").text(currentCity);
-                $("#enteredCity").html(response.name + response.current.dt);
+                $("#weatherImage").html(`${res.name}, ${new Date(response.current.dt * 1000).toDateString()} + ${currentIcon}`);
                 $("#temperature").text("Temperature:" + response.current.temp);
-                $("#weatherImage").attr("src", response.current.weather.icon);
+                let currentIcon = response.current.weather[0].icon;
+                let currentIconurl = "http://openweathermap.org/img/wn/10d@2x.png" + currentIcon + "@2x.png";
+                $(".current-icon").html("<img src=" + currentIcon + ">" ); 
                 $("#humidity").text("Humidity:" + response.current.humidity);
                 $("#windspeed").text("Windspeed:" + response.current.wind_speed);
 
@@ -69,35 +71,28 @@ function populateCurrentCity(currentCity) {
 
 
 
-              var renderForecast = function renderForecast(currentCity) {
-                    for (var i = 0; i < data.list.length; i++) {
-                        if (data.list[i].dt_txty.indexOf("15:00:00") !== -1) {
-           
-                           let dayOneImg = response.daily[0];
-           
-                           let dayOneImgUrl = "https://openweathermap.org/img/w/" + dayOneImg + ".png";
-           
-                           let dayTwoImg = response.daily[1];
-           
-                           let dayTwoImgUrl = "https://openweathermap.org/img/w/" + dayTwoImg + ".png";
-           
-                           let dayThreeImg = response.daily[2];
-           
-                           let dayThreeImgUrl = "https://openweathermap.org/img/w/" + dayThreeImg + ".png";
-           
-                           let dayFourImg = response.daily[3];
-           
-                           let dayFourImgUrl = "https://openweathermap.org/img/w/" + dayFourImg + ".png";
-           
-                           let dayFiveImg = response.daily[4];
-           
-                           let dayFiveImgUrl = "https://openweathermap.org/img/w/" + dayFiveImg + ".png";
-                       }
-                }
-                    
-        
-                }
+ 
+                const renderForecast = function() {
+                    let dailyHTML = "";
+                    for (let day of response.daily.slice(1,6)) {
+                        dailyHTML += `
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>${new Date(day.dt * 1000).toDateString()}</p>
+                                    <p>Temp:${day.temp.day}</p>
+                                    <img src="https://openweathermap.org/img/w/${day.weather[0].icon}.png"  SameSite=None; secure;>
+                                    <p>Humidity:${day.humidity}</p>
+                                   
+                                </div>
+                            </div>
+                        `
+                    }
+                    console.log(dailyHTML);
+                    dailyContent.html(dailyHTML);
+                        
+                };
 
+                renderForecast(currentCity);
             });
 
 
@@ -108,20 +103,19 @@ function populateCurrentCity(currentCity) {
 
 
 
-    $(document).on("click", "#searchBtn", function (e) {
-        e.preventDefault();
-        console.log("city: ", enteredCity.val());
-        populateCurrentCity(enteredCity.val());
-    
-        listCity.push(enteredCity.val());
-       
-        cityContainerEl.empty();
-        for (let city of listCity) {
-            cityContainerEl.append(`
+$(document).on("click", "#searchBtn", function (e) {
+    e.preventDefault();
+    console.log("city: ", enteredCity.val());
+    populateCurrentCity(enteredCity.val());
+
+    listCity.push(enteredCity.val());
+    cityContainerEl.empty();
+    for (let city of listCity) {
+        cityContainerEl.append(`
             <li class="cityRecord">${city}</li>
         `)
-        }
-        localStorage.setItem(city, enteredCity.val());
-        console.log(enteredCity.val());
-    })
+    }
+    localStorage.setItem(city, enteredCity.val());
+    console.log(enteredCity.val());
+})
 

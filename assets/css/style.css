@@ -5,3 +5,15 @@ h1 {
     font-size: 50px;
     color: #ffff;
 }
+
+#daily-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.card {
+    background-color: royalblue;
+    color: #ffff;
+}

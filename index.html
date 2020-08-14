@@ -29,8 +29,7 @@
                         <form class="form-inline" action="#" method="GET">
                             <input id="enteredCity" type="text" placeholder="Enter a City" />
                             <div class="list-group-append">
-                                <button class="btn btn-primary searchBtn" iclass="fa fa-search"
-                                    id="searchBtn"></button>
+                                <button class="btn btn-primary searchBtn" iclass="fa fa-search" id="searchBtn"></button>
                             </div>
                         </form>
                     </div>
@@ -44,7 +43,7 @@
                 <div class="row border" id="todaysWeather">
                     <div class="col-sm-12">
 
-                        <h2 class="current-header" id="weatherImage"></h2>
+                        <h2 class="current-header current-icon" id="weatherImage"></h2>
 
                         <p id="temperature" class="current"></p>
                         <p id="humidity" class="current"></p>
@@ -54,53 +53,16 @@
                     </div>
                 </div>
 
-                <div id="forecast" class="col-sm-12">
+                <div class="col-sm-12">
                     <h3>5-Day Forecast:</h3>
                     <div class="row">
-                        <div class="col-sm-2">
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                        </div>
-                        <div class="col-sm-2">
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                        </div>
-                        <div class="col-sm-2">
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                        </div>
-                        <div class="col-sm-2">
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                        </div>
-                        <div class="col-sm-2">
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
-                            <p id=""></p>
+                        <div id="daily-content">
 
                         </div>
+
                     </div>
-
                 </div>
-
-
             </div>
-
-
-
-
-
-
-
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
