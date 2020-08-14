@@ -46,9 +46,9 @@ function populateCurrentCity(currentCity) {
                 $(".current-header").text(currentCity);
                 $("#weatherImage").html(`${res.name}, ${new Date(response.current.dt * 1000).toDateString()}`);
                 $("#temperature").text("Temperature:" + response.current.temp);
-                // let currentIcon = response.current.weather[0].icon;
-                // let currentIconurl = "http://openweathermap.org/img/wn/10d@2x.png" + currentIcon + "@2x.png";
-                // $(".current-icon").html("<img src=" + currentIcon + ">" ); 
+                var currentIcon = response.current.weather[0].icon;
+                var currentIconURL = "http://openweathermap.org/img/wn/" + currentIcon + "@2x.png";
+                $(".current-icon").append("<img src='" + currentIconURL + "' />" ); 
                 $("#humidity").text("Humidity:" + response.current.humidity);
                 $("#windspeed").text("Windspeed:" + response.current.wind_speed);
 
